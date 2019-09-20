@@ -89,6 +89,7 @@ var Avatar = &Spider{
 					query := ctx.GetDom()
 					query.Find(".txList").Each(func(i int, selection *goquery.Selection) {
 						src, _ := selection.Find("a.img>img").First().Attr("src")
+						src = "http:"+src
 						name := selection.Find("p>a").Text()
 						fmt.Printf("nickname:%s \t url: %s\n", name, src)
 						ctx.AddQueue(&request.Request{
